@@ -2,8 +2,7 @@ import styles from "./styles.module.css";
 
 const Pagination = ({
   totalPages,
-  handlePreviousPage,
-  handleNextPage,
+  handlePageNavigation,
   handlePageClick,
   currentPage,
 }) => {
@@ -11,7 +10,7 @@ const Pagination = ({
     <div className={styles.pagination}>
       <button
         disabled={currentPage <= 1}
-        onClick={handlePreviousPage}
+        onClick={() => handlePageNavigation("previous")}
         className={styles.arrow}
       >
         {"<"}
@@ -33,7 +32,7 @@ const Pagination = ({
 
       <button
         disabled={currentPage >= totalPages}
-        onClick={handleNextPage}
+        onClick={() => handlePageNavigation("next")}
         className={styles.arrow}
       >
         {">"}
