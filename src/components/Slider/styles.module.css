@@ -1,0 +1,12 @@
+.slider {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}

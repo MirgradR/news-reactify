@@ -4,6 +4,11 @@
   width: 100%;
   gap: 12px;
   box-sizing: border-box;
-  max-height: 1200px;
-  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .banners {
+    max-height: 1200px;
+    overflow-y: auto;
+  }
 }
