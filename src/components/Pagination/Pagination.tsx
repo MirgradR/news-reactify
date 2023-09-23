@@ -1,12 +1,20 @@
 import styles from "./styles.module.css";
 
+interface Props {
+  totalPages: number;
+  handlePreviousPage: () => void;
+  handleNextPage: () => void;
+  handlePageClick: (page: number) => void;
+  currentPage: number;
+}
+
 const Pagination = ({
   totalPages,
   handlePreviousPage,
   handleNextPage,
   handlePageClick,
   currentPage,
-}) => {
+}: Props) => {
   return (
     <div className={styles.pagination}>
       <button

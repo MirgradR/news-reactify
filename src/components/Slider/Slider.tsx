@@ -1,15 +1,24 @@
 import React, { useRef } from "react";
 import styles from "./styles.module.css";
 
-const Slider = ({ children, step = 150 }) => {
-  const sliderRef = useRef(null);
+interface Props {
+  children: React.ReactElement;
+  step?: number;
+}
+
+const Slider = ({ children, step = 150 }: Props) => {
+  const sliderRef = useRef<HTMLElement | null>(null);
 
   const scrollLeft = () => {
-    sliderRef.current.scrollLeft -= step;
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft -= step;
+    }
   };
 
   const scrollRight = () => {
-    sliderRef.current.scrollLeft += step;
+    if (sliderRef.current) {
+      sliderRef.current.scrollLeft += step;
+    }
   };
 
   return (
