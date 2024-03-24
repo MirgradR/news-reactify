@@ -2,13 +2,11 @@ import { ParamsType } from "@/shared/interfaces";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { NewsApiResponse } from "..";
 import { setNews } from "../model/newsSlice";
-
-const BASE_URL = import.meta.env.VITE_NEWS_BASE_API_URL;
-const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
+import { NEWS_API_KEY, NEWS_BASE_API_URL } from "@/shared/config";
 
 export const newsApi = createApi({
   reducerPath: "newsApi",
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: NEWS_BASE_API_URL }),
   endpoints: (builder) => ({
     getNews: builder.query<NewsApiResponse, ParamsType>({
       keepUnusedDataFor: 0,
@@ -22,7 +20,7 @@ export const newsApi = createApi({
         return {
           url: "search",
           params: {
-            apiKey: API_KEY,
+            apiKey: NEWS_API_KEY,
             page_number,
             page_size,
             category,
@@ -42,7 +40,7 @@ export const newsApi = createApi({
         return {
           url: "latest-news",
           params: {
-            apiKey: API_KEY,
+            apiKey: NEWS_API_KEY,
           },
         };
       },
