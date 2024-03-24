@@ -1,19 +1,17 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { CategoriesApiResponse } from "..";
-
-const BASE_URL = import.meta.env.VITE_NEWS_BASE_API_URL;
-const API_KEY = import.meta.env.VITE_NEWS_API_KEY;
+import { NEWS_API_KEY, NEWS_BASE_API_URL } from "@/shared/config";
 
 export const categoriesApi = createApi({
   reducerPath: "categoriesApi",
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({ baseUrl: NEWS_BASE_API_URL }),
   endpoints: (builder) => ({
     getCategories: builder.query<CategoriesApiResponse, null>({
       query: () => {
         return {
           url: "available/categories",
           params: {
-            apiKey: API_KEY,
+            apiKey: NEWS_API_KEY,
           },
         };
       },
