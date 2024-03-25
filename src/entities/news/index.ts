@@ -1,6 +1,3 @@
-import { NewsApiResponse, INews } from "./model/types";
-import NewsCard from "./ui/NewsCard/NewsCard";
-import NewsDetails from "./ui/NewsDetails/NewsDetails";
-
-export type { NewsApiResponse, INews };
-export { NewsCard, NewsDetails };
+export * as newsApi from "./api";
+export * as newsModel from "./model";
+export { NewsCard, NewsDetails } from "./ui";

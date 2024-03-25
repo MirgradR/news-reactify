@@ -1,8 +1,17 @@
-import { CategoriesType } from "@/entities/category";
+import { categoryModel } from "@/entities/category";
+
+export interface IFilters {
+  page_number: number;
+  page_size: number;
+  category: categoryModel.CategoriesType | null;
+  keywords: string;
+}
+
+export type ParamsType = Partial<IFilters>;
 
 export interface INews {
   author: string;
-  category: CategoriesType[];
+  category: categoryModel.CategoriesType[];
   description: string;
   id: string;
   image: string;

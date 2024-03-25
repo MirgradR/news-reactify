@@ -1,8 +1,7 @@
-import { ParamsType } from "@/shared/interfaces";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { NewsApiResponse } from "..";
-import { setNews } from "../model/newsSlice";
 import { NEWS_API_KEY, NEWS_BASE_API_URL } from "@/shared/config";
+import { NewsApiResponse, ParamsType } from "../model";
+import { setNews } from "../model/newsSlice";
 
 export const newsApi = createApi({
   reducerPath: "newsApi",
