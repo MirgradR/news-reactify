@@ -1,8 +1,8 @@
-import Header from "@/widgets/header/ui/Header/Header";
-import { useTheme } from "@/app/providers/ThemeProvider";
 import { Outlet } from "react-router-dom";
+import { useTheme } from "@/shared/ui/Theme";
+import { Header } from "@/widgets/header";
 
-function BaseLayout() {
+export function BaseLayout() {
   const { isDark } = useTheme();
   return (
     <div className={`app ${isDark ? "dark" : "light"}`}>
@@ -13,5 +13,3 @@ function BaseLayout() {
     </div>
   );
 }
-
-export default BaseLayout;
