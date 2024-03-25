@@ -1,17 +1,16 @@
-import { INews } from "@/entities/news";
-import withSkeleton from "@/shared/hocs/withSkeleton";
-import styles from "./styles.module.css";
-import NewsCard from "@/entities/news/ui/NewsCard/NewsCard";
 import { ReactNode } from "react";
+import { newsModel, NewsCard } from "@/entities/news";
+import { withSkeleton } from "@/shared/ui/Skeleton";
+import styles from "./styles.module.css";
 
 interface Props {
-  news?: INews[];
+  news?: newsModel.INews[];
   type?: "banner" | "item";
   direction?: "row" | "column";
-  viewNewsSlot?: (news: INews) => ReactNode;
+  viewNewsSlot?: (_news: newsModel.INews) => ReactNode;
 }
 
-const NewsList = ({ news, type = "item", viewNewsSlot }: Props) => {
+const List = ({ news, type = "item", viewNewsSlot }: Props) => {
   return (
     <ul className={`${type === "item" ? styles.items : styles.banners}`}>
       {news?.map((item) => {
@@ -28,6 +27,4 @@ const NewsList = ({ news, type = "item", viewNewsSlot }: Props) => {
   );
 };
 
-const NewsListWithSkeleton = withSkeleton<Props>(NewsList, 10);
-
-export default NewsListWithSkeleton;
+export const NewsList = withSkeleton<Props>(List, 10);

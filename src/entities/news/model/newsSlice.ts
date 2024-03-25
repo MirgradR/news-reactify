@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { IFilters } from "../../../shared/interfaces";
-import { PAGE_SIZE } from "../../../shared/constants/constants";
-import { INews } from "..";
+import { INews, IFilters } from "./types";
+
+export const PAGE_SIZE = 10;
 
 interface State {
   news: INews[];
@@ -42,5 +42,3 @@ export const newsSlice = createSlice({
 });
 
 export const { setNews, setFilters, setCurrentNews } = newsSlice.actions;
-
-export default newsSlice.reducer;

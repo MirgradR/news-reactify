@@ -1,3 +1,1 @@
-import Slider from "./ui/Slider/Slider";
-
-export { Slider };
+export { Slider } from "./ui";

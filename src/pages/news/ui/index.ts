@@ -1,0 +1,1 @@
+export { NewsPage } from "./Page";

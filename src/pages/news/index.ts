@@ -1,3 +1,1 @@
-import NewsPage from "./ui/Page";
-
-export { NewsPage };
+export { NewsPage } from "./ui";

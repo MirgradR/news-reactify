@@ -7,7 +7,7 @@ interface Props {
   isDark: boolean;
 }
 
-const Slider = ({ children, step = 150, isDark }: Props) => {
+export const Slider = ({ children, step = 150, isDark }: Props) => {
   const sliderRef = useRef<HTMLElement | null>(null);
 
   const scrollLeft = () => {
@@ -28,5 +28,3 @@ const Slider = ({ children, step = 150, isDark }: Props) => {
     </div>
   );
 };
-
-export default Slider;

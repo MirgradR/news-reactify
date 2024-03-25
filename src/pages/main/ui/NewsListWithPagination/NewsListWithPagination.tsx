@@ -1,13 +1,11 @@
-import NewsList from "@/widgets/news/ui/NewsList/NewsList";
-import PaginationWrapper from "@/features/pagination/ui/Pagination/Pagination";
-import { TOTAL_PAGES } from "@/shared/constants/constants";
-import { IFilters } from "@/shared/interfaces";
-import { INews } from "@/entities/news";
-import { usePaginationNews } from "../../utils/hooks/usePaginationNews";
+import { newsModel } from "@/entities/news";
+import { Pagination } from "@/features/pagination";
+import { NewsList } from "@/widgets/news";
+import { usePaginationNews, TOTAL_PAGES } from "../../model";
 
 interface Props {
-  filters: IFilters;
-  news: INews[];
+  filters: newsModel.IFilters;
+  news: newsModel.INews[];
   isLoading: boolean;
 }
 
@@ -16,7 +14,7 @@ const NewsListWithPagination = ({ filters, news, isLoading }: Props) => {
     usePaginationNews(filters);
 
   return (
-    <PaginationWrapper
+    <Pagination
       top
       bottom
       handlePreviousPage={handlePreviousPage}
@@ -31,7 +29,7 @@ const NewsListWithPagination = ({ filters, news, isLoading }: Props) => {
         isLoading={isLoading}
         news={news}
       />
-    </PaginationWrapper>
+    </Pagination>
   );
 };
 

@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .env
+
+# Optional eslint cache
+.eslintcache

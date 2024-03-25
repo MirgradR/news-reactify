@@ -1,18 +1,16 @@
-import { useGetLatestNewsQuery } from "@/entities/news/api/newsApi";
-import styles from "./styles.module.css";
-import { NewsList } from "@/widgets/news";
-import { INews } from "@/entities/news";
-import { useAppDispatch } from "@/app/appStore";
-import { setCurrentNews } from "@/entities/news/model/newsSlice";
 import { useNavigate } from "react-router-dom";
+import { newsModel, newsApi } from "@/entities/news";
+import { useAppDispatch } from "@/shared/lib/redux";
+import { NewsList } from "@/widgets/news";
+import styles from "./styles.module.css";
 
 const LatestNews = () => {
-  const { data, isLoading } = useGetLatestNewsQuery(null);
+  const { data, isLoading } = newsApi.useGetLatestNewsQuery(null);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const navigateTo = (news: INews) => {
-    dispatch(setCurrentNews(news));
+  const navigateTo = (news: newsModel.INews) => {
+    dispatch(newsModel.setCurrentNews(news));
     navigate(`/news/${news.id}`);
   };
 
@@ -23,7 +21,7 @@ const LatestNews = () => {
         direction="row"
         news={data && data.news}
         isLoading={isLoading}
-        viewNewsSlot={(news: INews) => (
+        viewNewsSlot={(news: newsModel.INews) => (
           <p onClick={() => navigateTo(news)}>view more...</p>
         )}
       />

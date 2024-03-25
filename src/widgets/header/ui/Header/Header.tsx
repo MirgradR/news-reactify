@@ -1,10 +1,10 @@
-import { useTheme } from "@/app/providers/ThemeProvider";
-import styles from "./styles.module.css";
-import ThemeButton from "@/features/theme/ui/ThemeButton/ThemeButton";
-import { formatDate } from "@/shared/helpers/formatDate";
 import { Link } from "react-router-dom";
+import { ThemeButton } from "@/features/theme";
+import { formatDate } from "@/shared/lib/date";
+import { useTheme } from "@/shared/ui/Theme";
+import styles from "./styles.module.css";
 
-const Header = () => {
+export const Header = () => {
   const { isDark } = useTheme();
   return (
     <header
@@ -22,5 +22,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

@@ -1,10 +1,9 @@
-import { newsApi } from "@/entities/news/api/newsApi";
 import { combineReducers } from "@reduxjs/toolkit";
-import newsReducer from "@/entities/news/model/newsSlice";
-import { categoriesApi } from "@/entities/category/api/categoriesApi";
+import { categoryApi } from "@/entities/category";
+import { newsApi, newsModel } from "@/entities/news";
 
 export const rootReducer = combineReducers({
-  news: newsReducer,
-  [newsApi.reducerPath]: newsApi.reducer,
-  [categoriesApi.reducerPath]: categoriesApi.reducer,
+  [newsModel.newsSlice.name]: newsModel.newsSlice.reducer,
+  [newsApi.newsApi.reducerPath]: newsApi.newsApi.reducer,
+  [categoryApi.categoriesApi.reducerPath]: categoryApi.categoriesApi.reducer,
 });

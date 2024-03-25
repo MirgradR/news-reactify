@@ -1,16 +1,17 @@
-import { useTheme } from "@/app/providers/ThemeProvider";
-import { themeIcons } from "@/shared/assets";
+/* eslint-disable import/no-unresolved */
+import { useTheme } from "@/shared/ui/Theme";
+import darkThemeSrc from "/theme/dark.png";
+import lightThemeSrc from "/theme/light.png";
 
-const ThemeButton = () => {
+export const ThemeButton = () => {
   const { isDark, toggleTheme } = useTheme();
+
   return (
     <img
-      src={isDark ? themeIcons.light : themeIcons.dark}
+      src={isDark ? lightThemeSrc : darkThemeSrc}
       width={30}
       alt="theme"
       onClick={toggleTheme}
     />
   );
 };
-
-export default ThemeButton;

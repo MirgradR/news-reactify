@@ -1,3 +1,2 @@
-import { CategoriesType, CategoriesApiResponse } from "./model/types";
-
-export type { CategoriesType, CategoriesApiResponse };
+export * as categoryApi from "./api";
+export * as categoryModel from "./model";

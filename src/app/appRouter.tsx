@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import BaseLayout from "./layouts/BaseLayout";
 import { MainPage } from "@/pages/main";
 import { NewsPage } from "@/pages/news";
+import { BaseLayout } from "./layouts/BaseLayout";
 
 export const appRouter = createBrowserRouter([
   {

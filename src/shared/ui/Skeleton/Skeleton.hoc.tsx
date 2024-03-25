@@ -1,5 +1,6 @@
-import Skeleton from "../ui/Skeleton/Skeleton";
-import { DirectionType, SkeletonType } from "../interfaces";
+import { ComponentType } from "react";
+import { Skeleton } from "./Skeleton";
+import { DirectionType, SkeletonType } from "./Skeleton.types";
 
 interface Props {
   isLoading: boolean;
@@ -7,8 +8,8 @@ interface Props {
   type?: SkeletonType;
 }
 
-function withSkeleton<P extends object>(
-  Component: React.ComponentType<P>,
+export function withSkeleton<P extends object>(
+  Component: ComponentType<P>,
   count?: number
 ) {
   return function WithSkeleton(props: Props & P) {
@@ -21,5 +22,3 @@ function withSkeleton<P extends object>(
     return <Component type={type} {...(restProps as P)} />;
   };
 }
-
-export default withSkeleton;

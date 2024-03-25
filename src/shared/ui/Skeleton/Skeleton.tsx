@@ -1,4 +1,4 @@
-import { DirectionType, SkeletonType } from "../../interfaces";
+import { DirectionType, SkeletonType } from "./Skeleton.types";
 import styles from "./styles.module.css";
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   direction?: DirectionType;
 }
 
-const Skeleton = ({
+export const Skeleton = ({
   count = 1,
   type = "banner",
   direction = "column",
@@ -33,5 +33,3 @@ const Skeleton = ({
     </>
   );
 };
-
-export default Skeleton;
