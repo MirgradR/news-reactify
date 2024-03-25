@@ -1,0 +1,1 @@
+export { NewsFilters } from "./NewsFilters";
