@@ -1,9 +1,9 @@
-import { useAppSelector } from "@/app/appStore";
-import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
 import { NewsDetails } from "@/entities/news";
+import { useAppSelector } from "@/shared/lib/redux";
+import styles from "./styles.module.css";
 
-const NewsPage = () => {
+export const NewsPage = () => {
   const currentNews = useAppSelector((state) => state.news.currentNews);
 
   if (!currentNews) {
@@ -24,5 +24,3 @@ const NewsPage = () => {
     </main>
   );
 };
-
-export default NewsPage;

@@ -1,10 +1,10 @@
-import { useAppSelector } from "@/app/appStore";
-import { useDebounce } from "@/shared/hooks/useDebounce";
-import { useGetNewsQuery } from "@/entities/news/api/newsApi";
-import styles from "./styles.module.css";
-import { useGetCategoriesQuery } from "@/entities/category/api/categoriesApi";
+import { categoryApi } from "@/entities/category";
+import { newsApi } from "@/entities/news";
+import { useDebounce } from "@/shared/lib/react";
+import { useAppSelector } from "@/shared/lib/redux";
 import { NewsFilters } from "@/widgets/news";
 import NewsListWithPagination from "../NewsListWithPagination/NewsListWithPagination";
+import styles from "./styles.module.css";
 
 const NewsByFilters = () => {
   const filters = useAppSelector((state) => state.news.filters);
@@ -12,11 +12,11 @@ const NewsByFilters = () => {
 
   const debouncedKeywords = useDebounce(filters.keywords, 1500);
 
-  const { isLoading } = useGetNewsQuery({
+  const { isLoading } = newsApi.useGetNewsQuery({
     ...filters,
     keywords: debouncedKeywords,
   });
-  const { data } = useGetCategoriesQuery(null);
+  const { data } = categoryApi.useGetCategoriesQuery(null);
 
   return (
     <section className={styles.section}>
