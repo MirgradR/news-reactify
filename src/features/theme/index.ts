@@ -1,3 +1,1 @@
-import ThemeButton from "./ui/ThemeButton/ThemeButton";
-
-export { ThemeButton };
+export { ThemeButton } from "./ui";

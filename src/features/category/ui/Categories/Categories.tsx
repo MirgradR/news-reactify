@@ -1,11 +1,11 @@
 import { ForwardedRef, forwardRef } from "react";
+import { categoryModel } from "@/entities/category";
 import styles from "./styles.module.css";
-import { CategoriesType } from "@/entities/category";
 
 interface Props {
-  categories: CategoriesType[];
-  setSelectedCategory: (category: CategoriesType | null) => void;
-  selectedCategory: CategoriesType | null;
+  categories: categoryModel.CategoriesType[];
+  setSelectedCategory: (_category: categoryModel.CategoriesType | null) => void;
+  selectedCategory: categoryModel.CategoriesType | null;
 }
 
 const Categories = forwardRef(
@@ -41,4 +41,4 @@ const Categories = forwardRef(
 
 Categories.displayName = "Categories";
 
-export default Categories;
+export { Categories };

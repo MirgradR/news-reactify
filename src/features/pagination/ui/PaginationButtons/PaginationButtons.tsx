@@ -1,4 +1,4 @@
-import { useTheme } from "@/app/providers/ThemeProvider";
+import { useTheme } from "@/shared/ui/Theme";
 import { IPaginationProps } from "../../model/types";
 import styles from "./styles.module.css";
 

@@ -1,12 +1,12 @@
-import { useTheme } from "@/app/providers/ThemeProvider";
+import { useTheme } from "@/shared/ui/Theme";
 import styles from "./styles.module.css";
 
 interface Props {
   keywords: string;
-  setKeywords: (keywords: string) => void;
+  setKeywords: (_keywords: string) => void;
 }
 
-const Search = ({ keywords, setKeywords }: Props) => {
+export const Search = ({ keywords, setKeywords }: Props) => {
   const { isDark } = useTheme();
   return (
     <div className={`${styles.search} ${isDark ? styles.dark : styles.light}`}>
@@ -20,5 +20,3 @@ const Search = ({ keywords, setKeywords }: Props) => {
     </div>
   );
 };
-
-export default Search;

@@ -1,13 +1,14 @@
+import { ReactNode } from "react";
 import { IPaginationProps } from "../../model/types";
 import PaginationButtons from "../PaginationButtons/PaginationButtons";
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
   top?: boolean;
   bottom?: boolean;
 }
 
-const Pagination = ({
+export const Pagination = ({
   top,
   bottom,
   children,
@@ -21,5 +22,3 @@ const Pagination = ({
     </>
   );
 };
-
-export default Pagination;
